@@ -1,0 +1,3 @@
+assetpicker_proxy:
+  path: /assetpicker
+  defaults:  { _controller: AssetPickerBundle:Proxy:index }
