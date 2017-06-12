@@ -53,7 +53,9 @@ class ConsoleListener
             $targetDir = $bundlesDir . '/' . preg_replace('/bundle$/', '', strtolower($bundle->getName()));
             $output->writeln(sprintf('Installing assets for <comment>%s</comment> into <comment>%s</comment>', $bundle->getNamespace(), $targetDir));
 
-            $filesystem->remove($targetDir);
+            // this is very problematic, it will remove the asstes from the original bundle
+            // if we really need to delete the js assets we should copy it int a own directory
+            //$filesystem->remove($targetDir);
 
             $symlink = $input->getOption('symlink');
             $relative = $input->getOption('relative');

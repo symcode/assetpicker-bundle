@@ -1,0 +1,47 @@
+oro_system_configuration:
+    groups:
+        symcode:
+            title: symcode_cloud_akeneo.system_config.group.symcode_cloud_akeneo.title
+            icon:  'icon-info-sign'
+
+        symcode_cloud_akeneo:
+            title: symcode_cloud_akeneo.system_config.group.symcode_cloud_akeneo.title
+
+    fields:
+        symcode_cloud_akeneo.host:
+            type: oro_config_scalar
+            priority: 60
+            options:
+                label:   Host
+                tooltip: Symcode Cloud Host
+                required: true
+        symcode_cloud_akeneo.username:
+            type: oro_config_scalar
+            priority: 65
+            options:
+                label:   Username
+                tooltip: Symcode Cloud Username
+                required: true
+        symcode_cloud_akeneo.password:
+            type: oro_config_scalar
+            priority: 70
+            options:
+                label:   Password
+                tooltip: Symcode Cloud Password
+                required: true
+
+    tree:
+        system_configuration:
+            platform:
+                children:
+                    general_setup:
+                        children:
+                            symcode:
+                                priority: 254
+                                children:
+                                    symcode_cloud_akeneo:
+                                        priority: 100
+                                        children:
+                                            - symcode_cloud_akeneo.host
+                                            - symcode_cloud_akeneo.username
+                                            - symcode_cloud_akeneo.password

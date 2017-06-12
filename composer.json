@@ -1,9 +1,9 @@
 {
-    "name": "netresearch/assetpicker-bundle",
+    "name": "symcode/nrc-assetpicker-bundle",
     "description": "Symfony Bundle for [AssetPicker](https://github.com/netresearch/assetpicker)",
     "type": "library",
     "require": {
-        "netresearch/assetpicker": "^1.2.2"
+        "symcode/nrc-assetpicker": "^1.3.0"
     },
     "license": "MIT",
     "authors": [

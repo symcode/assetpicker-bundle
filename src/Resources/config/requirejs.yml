@@ -1,0 +1,7 @@
+config:
+    paths:
+        # Forms
+        oro/form/system/config/group/symcodecloud: assetpicker/js/form/system/group/symcodecloud
+
+        # Templates
+        oro/template/system/group/symcodecloud: assetpicker/js/templates/system/group/symcodecloud.html

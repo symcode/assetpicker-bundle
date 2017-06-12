@@ -1,0 +1,4 @@
+parameters:
+    symcode.cloud.host: ""
+    symcode.cloud.username: ""
+    symcode.cloud.password: ""

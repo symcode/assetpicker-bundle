@@ -1,0 +1,6 @@
+extensions:
+    oro-system-config-group-symcodecloud:
+        module: oro/form/system/config/group/symcodecloud
+        parent: oro-system-config-system
+        targetZone: content
+        position: 120
