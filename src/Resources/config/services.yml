@@ -1,5 +1,6 @@
 parameters:
     assetpicker.console_listener.class:  Netresearch\AssetPickerBundle\Listener\ConsoleListener
+    assetpicker.kernel_listener.class:  Netresearch\AssetPickerBundle\Listener\KernelListener
     assetpicker.twig.class:              Netresearch\AssetPickerBundle\Twig\AssetPickerExtension
 
 services:
@@ -7,6 +8,16 @@ services:
         class: '%assetpicker.console_listener.class%'
         tags:
             - { name: kernel.event_listener, event: console.terminate, method: onCommandTerminate }
+
+    assetpicker.kernel_listener:
+        class: '%assetpicker.kernel_listener.class%'
+        arguments:
+            - '@router'
+            - '@kernel'
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+
     assetpicker.twig_extension:
         class: '%assetpicker.twig.class%'
         arguments:
