@@ -57,6 +57,7 @@ class KernelListener
             $router = $this->router;
             $request = $event->getRequest();
             $route = $router->match($request->getPathInfo());
+
             if ($route['_route'] == 'oro_config_configuration_system_post') {
 
                 // send the response, wee need to do this manually
@@ -72,21 +73,25 @@ class KernelListener
                     $active = (int)$this->getCloudConfig($request, 'active');
                     $callbackActive = (int)$this->getCloudConfig($request, 'callback_active');
 
-                    if($active && $callbackActive){
+                    if ($active && $callbackActive) {
                         $host = $this->getCloudConfig($request, 'host');
                         $username = $this->getCloudConfig($request, 'username');
                         $password = $this->getCloudConfig($request, 'password');
                         $cloudSecurityClient = new SecurityClient($host, '');
                         $apikey = $cloudSecurityClient->login($username, $password);
-                        if(!empty($apikey)){
+
+                        if (!empty($apikey)) {
                             $cloudSecurityClient = new SettingClient($host, $apikey);
-                            $cloudSecurityClient->save(array(), $this->router->generate('assetpicker_symcodecloud_callback'));
+                            $cloudSecurityClient->save(
+                                array(),
+                                $this->router->generate('assetpicker_symcodecloud_callback', array(), true)
+                            );
                         }
                     }
 
                     $this->clearCache();
                 } catch (\Exception $exception) {
-
+                    //var_dump($exception->getMessage());
                 }
                 // we need to die because after the cache clear we will get sometimes class not found errors
                 // because the current php process has still references to deleted cache classes
@@ -100,15 +105,18 @@ class KernelListener
      * @param $key
      * @return mixed
      */
-    protected function getCloudConfig($request, $key){
+    protected function getCloudConfig($request, $key)
+    {
         // we need to use the current request value
         // the config manager has still the old value! ( bad class design ;) )
         $value = $request->get('symcode_cloud_akeneo'.ConfigManager::SECTION_VIEW_SEPARATOR.$key)['value'];
+
         //$value = $this->configManager->get(OverrideServiceCompilerPass::SYMCODE_CLOUD_AKENEO_CONFIG_SECTION.ConfigManager::SECTION_MODEL_SEPARATOR.$key);
         return $value;
     }
 
-    protected function clearCache(){
+    protected function clearCache()
+    {
         $application = new Application($this->kernel);
         $application->setAutoExit(false);
 
