@@ -25,6 +25,7 @@ define([
                 var formData = this.getFormData();
                 console.debug(formData);
                 this.$el.html(this.template({
+                    'active': formData['symcode_cloud_akeneo___active'].value,
                     'host': formData['symcode_cloud_akeneo___host'].value,
                     'username': formData['symcode_cloud_akeneo___username'].value,
                     'password': formData['symcode_cloud_akeneo___password'].value
