@@ -1,9 +1,9 @@
 <div class="system-symcodeclod-field">
-    <label for="symcode_cloud_akeneo___active">Active (You need to clear the system cache after changing the status!)</label>
+    <label for="symcode_cloud_akeneo___active">Active</label>
 
     <div class="system-symcodeclod-field">
         <div class="switch switch-small" data-on-label="<%- _.__('pim_enrich.form.entity.switch.yes') %>" data-off-label="<%- _.__('pim_enrich.form.entity.switch.no') %>">
-            <input id="symcode_cloud_akeneo___active" type="checkbox" name="system-symcodeclod" <%- active === '1' ? 'checked' : '' %> />
+            <input id="symcode_cloud_akeneo___active" type="checkbox" name="system-symcodeclod___active" <%- active === '1' ? 'checked' : '' %> />
         </div>
     </div>
 </div>
@@ -29,5 +29,23 @@
 
     <div class="system-symcodecloud-field">
         <input id="symcode_cloud_akeneo___password" type="password" name="symcode_cloud_akeneo___password" value="<%- password  %>" />
+    </div>
+</div>
+
+<div class="system-symcodeclod-field">
+    <label for="symcode_cloud_akeneo___callback_active">Autoassign: Active</label>
+
+    <div class="system-symcodeclod-field">
+        <div class="switch switch-small" data-on-label="<%- _.__('pim_enrich.form.entity.switch.yes') %>" data-off-label="<%- _.__('pim_enrich.form.entity.switch.no') %>">
+            <input id="symcode_cloud_akeneo___callback_active" type="checkbox" name="system-symcodeclod___callback_active" <%- callback_active === '1' ? 'checked' : '' %> />
+        </div>
+    </div>
+</div>
+
+<div class="system-symcodecloud-field">
+    <label for="symcode_cloud_akeneo___callback_pattern">Autoassign: Pattern</label>
+
+    <div class="system-symcodecloud-field">
+        <input id="symcode_cloud_akeneo___callback_pattern" type="text" name="symcode_cloud_akeneo___callback_pattern" value="<%- callback_pattern  %>" />
     </div>
 </div>

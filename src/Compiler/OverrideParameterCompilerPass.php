@@ -31,7 +31,7 @@ class OverrideParameterCompilerPass implements CompilerPassInterface
         $configManager = $container->get('oro_config.global');
         $config = $container->getParameter('assetpicker');
         // check if akeneo settings for symcode cloud adapter are active
-        $active = $configManager->get('symcode_cloud_akeneo.active');
+        $active = $configManager->get(OverrideServiceCompilerPass::SYMCODE_CLOUD_AKENEO_CONFIG_SECTION.ConfigManager::SECTION_MODEL_SEPARATOR.'active');
         if($active) {
 
             $cloudStorageConfig = null;

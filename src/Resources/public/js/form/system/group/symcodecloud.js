@@ -26,6 +26,8 @@ define([
                 console.debug(formData);
                 this.$el.html(this.template({
                     'active': formData['symcode_cloud_akeneo___active'].value,
+                    'callback_active': formData['symcode_cloud_akeneo___callback_active'].value,
+                    'callback_pattern': formData['symcode_cloud_akeneo___callback_pattern'].value,
                     'host': formData['symcode_cloud_akeneo___host'].value,
                     'username': formData['symcode_cloud_akeneo___username'].value,
                     'password': formData['symcode_cloud_akeneo___password'].value

@@ -1,16 +1,24 @@
 {
     "name": "symcode/nrc-assetpicker-bundle",
-    "description": "Symfony Bundle for [AssetPicker](https://github.com/netresearch/assetpicker)",
+    "description": "Modified Version of [AssetPicker Bundle](https://github.com/netresearch/assetpicker-bundle) to implement the Symcode Cloud Adapter",
     "type": "library",
     "require": {
-        "symcode/nrc-assetpicker": "dev-master"
+        "symcode/nrc-assetpicker": "dev-master",
+        "symcode/cloud-client": "dev-master"
     },
     "license": "MIT",
     "authors": [
         {
             "name": "Christian Opitz",
             "email": "christian.opitz@netresearch.de"
+        },
+        {
+            "name": "Christian Wielath",
+            "email": "wielath@symcode.de"
         }
+    ],
+    "repositories": [
+        { "type": "vcs", "url": "https://bitbucket.org/symcode2015/cloud-client" }
     ],
     "autoload": {
         "psr-4": {

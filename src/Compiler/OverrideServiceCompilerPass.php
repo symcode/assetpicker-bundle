@@ -10,30 +10,42 @@ use Symfony\Component\Yaml\Yaml;
 class OverrideServiceCompilerPass implements CompilerPassInterface
 {
 
+    const SYMCODE_CLOUD_AKENEO_CONFIG_SECTION = 'symcode_cloud_akeneo';
+
     /**
      * @return array
      */
     public static function getAdditinalSettings(){
         $additionalSettings = [];
         $additionalSettings[] = array(
-            'section' => 'symcode_cloud_akeneo',
+            'section' => self::SYMCODE_CLOUD_AKENEO_CONFIG_SECTION,
             'name' => 'active',
             'parameter_key' => 'active'
         );
         $additionalSettings[] = array(
-            'section' => 'symcode_cloud_akeneo',
+            'section' => self::SYMCODE_CLOUD_AKENEO_CONFIG_SECTION,
             'name' => 'host',
             'parameter_key' => 'url'
         );
         $additionalSettings[] = array(
-            'section' => 'symcode_cloud_akeneo',
+            'section' => self::SYMCODE_CLOUD_AKENEO_CONFIG_SECTION,
             'name' => 'username',
             'parameter_key' => 'cliUsername'
         );
         $additionalSettings[] = array(
-            'section' => 'symcode_cloud_akeneo',
+            'section' => self::SYMCODE_CLOUD_AKENEO_CONFIG_SECTION,
             'name' => 'password',
             'parameter_key' => 'cliPassword'
+        );
+        $additionalSettings[] = array(
+            'section' => self::SYMCODE_CLOUD_AKENEO_CONFIG_SECTION,
+            'name' => 'callback_active',
+            'parameter_key' => 'callback_active'
+        );
+        $additionalSettings[] = array(
+            'section' => self::SYMCODE_CLOUD_AKENEO_CONFIG_SECTION,
+            'name' => 'callback_pattern',
+            'parameter_key' => 'callback_pattern'
         );
         return $additionalSettings;
     }
