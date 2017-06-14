@@ -1,7 +1,3 @@
 assetpicker_proxy:
   path: /assetpicker
   defaults:  { _controller: AssetPickerBundle:Proxy:index }
-
-assetpicker_symcodecloud_callback:
-  path: /assetpicker/symcodecloud/callback
-  defaults:  { _controller: AssetPickerBundle:SymcodeCloud\Callback:index }
