@@ -3,8 +3,8 @@
     "description": "Modified Version of [AssetPicker Bundle](https://github.com/netresearch/assetpicker-bundle) to implement the Symcode Cloud Adapter",
     "type": "library",
     "require": {
-        "symcode/nrc-assetpicker": "dev-master",
-        "symcode/cloud-client": "dev-master"
+        "symcode/nrc-assetpicker": "dev-master as 1.3.x-dev",
+        "symcode/cloud-client": "dev-master as 1.4.x-dev"
     },
     "license": "MIT",
     "authors": [
