@@ -35,16 +35,19 @@ class KernelListener
 
     protected $kernel;
 
+    protected $notificationManager;
+
     /**
      * @var ConfigManager
      */
     protected $configManager;
 
-    function __construct($router, $kernel, ConfigManager $configManager)
+    function __construct($router, $kernel, ConfigManager $configManager, $notificationManager)
     {
         $this->router = $router;
         $this->kernel = $kernel;
         $this->configManager = $configManager;
+        $this->notificationManager = $notificationManager;
     }
 
     /**
@@ -57,7 +60,6 @@ class KernelListener
             $router = $this->router;
             $request = $event->getRequest();
             $route = $router->match($request->getPathInfo());
-
             if ($route['_route'] == 'oro_config_configuration_system_post') {
 
                 // send the response, wee need to do this manually
@@ -81,11 +83,24 @@ class KernelListener
                         $apikey = $cloudSecurityClient->login($username, $password);
 
                         if (!empty($apikey)) {
-                            $cloudSecurityClient = new SettingClient($host, $apikey);
-                            $cloudSecurityClient->save(
+                            $cloudSettingClient = new SettingClient($host, $apikey);
+                            $cloudSettingClient->save(
                                 array(),
                                 $this->router->generate('assetpicker_symcodecloud_callback', array(), true)
                             );
+                            //$this->manager->notify(
+                            //    [$user],       // An array of users (UserInterface or just the username)
+                            //    'Symcode Cloud (MAM) erfolgreich konfiguriert!', // The message translation key
+                            //    'success',              // The notification type ('success', 'warning' or 'error')
+                            //    []                // Additional options
+                            //);
+                        } else {
+                            //$this->manager->notify(
+                            //    [$user],       // An array of users (UserInterface or just the username)
+                            //    'Symcode Cloud (MAM) Login war nicht erfolgreich!', // The message translation key
+                            //    'error',              // The notification type ('success', 'warning' or 'error')
+                            //    []                // Additional options
+                            //);
                         }
                     }
 

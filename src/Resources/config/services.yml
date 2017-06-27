@@ -15,6 +15,7 @@ services:
             - '@router'
             - '@kernel'
             - '@oro_config.global'
+            - '@pim_notification.manager.notification'
         tags:
             - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
 
